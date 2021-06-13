@@ -9,7 +9,16 @@ namespace Jackie
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //2. feladat
+            List<DataRow> dataRows = new List<DataRow>();
+            foreach (var row in File.ReadAllLines("jackie.txt").Skip(1))
+            {
+                dataRows.Add(new DataRow(row));
+            }
+
+            //3.
+            Console.WriteLine($"3. feladat: {dataRows.Count}");
+
         }
     }
 }
