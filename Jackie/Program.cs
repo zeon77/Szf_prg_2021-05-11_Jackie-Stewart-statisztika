@@ -29,6 +29,27 @@ namespace Jackie
                 .Select(gr => new { Decade = gr.Key, Wins = gr.Sum(x => x.Wins) })
                 .ToList()
                 .ForEach(x => Console.WriteLine($"\t{x.Decade}-es évek: {x.Wins} megnyert verseny"));
+
+            //6.
+            Console.WriteLine($"6. feladat: jackie.html");
+            StreamWriter sw = new StreamWriter("jackie.html");
+            sw.WriteLine("<!DOCTYPE html>");
+            sw.WriteLine("<html>");
+            sw.WriteLine("<head></head>");
+            sw.WriteLine("<body>");
+            sw.WriteLine("<style>td { border: 1px solid black; }</style>");
+            sw.WriteLine("<h1>Jackie Stewart</h1>");
+            sw.WriteLine("<table>");
+            sw.WriteLine($"<tr><td>Year</td><td>Races</td><td>Wins</td></tr>");
+
+            dataRows
+                .ForEach(x => sw.WriteLine($"<tr><td>{x.Year}</td><td>{x.Races}</td><td>{x.Wins}</td></tr>"));
+
+            sw.WriteLine("</table>");
+            sw.WriteLine("</body>");
+            sw.WriteLine("</html>");
+
+            sw.Close();
         }
     }
 }
