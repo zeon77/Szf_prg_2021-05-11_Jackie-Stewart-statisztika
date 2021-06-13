@@ -19,6 +19,8 @@ namespace Jackie
             //3.
             Console.WriteLine($"3. feladat: {dataRows.Count}");
 
+            //4.
+            Console.WriteLine($"4. feladat: {dataRows.OrderBy(x => x.Races).Last().Year}");
         }
     }
 }
