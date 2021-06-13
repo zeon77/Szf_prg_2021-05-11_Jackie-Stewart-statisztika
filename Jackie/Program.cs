@@ -21,6 +21,14 @@ namespace Jackie
 
             //4.
             Console.WriteLine($"4. feladat: {dataRows.OrderBy(x => x.Races).Last().Year}");
+
+            //5.
+            Console.WriteLine($"5. feladat: ");
+            dataRows
+                .GroupBy(x => x.Decade)
+                .Select(gr => new { Decade = gr.Key, Wins = gr.Sum(x => x.Wins) })
+                .ToList()
+                .ForEach(x => Console.WriteLine($"\t{x.Decade}-es évek: {x.Wins} megnyert verseny"));
         }
     }
 }
